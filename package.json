@@ -1,0 +1,24 @@
+{
+  "name": "discord-sound-bot",
+  "version": "1.0.0",
+  "description": "This is the discord bot part of this project.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riezahughes/discord-graphql-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riezahughes/discord-graphql-bot/issues"
+  },
+  "homepage": "https://github.com/riezahughes/discord-graphql-bot#readme"
+}
