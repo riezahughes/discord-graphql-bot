@@ -40,6 +40,7 @@ client.on('message', (msg) => {
   let soundurl = breakup[2];
   let userid = breakup[3];
   let guildid = breakup[4];
+  let persistant = breakup[5];
 
   console.log(`Command: ${command}`);
   console.log(`Sound URL: ${soundurl}`);
@@ -79,6 +80,13 @@ client.on('message', (msg) => {
           connection.playArbitraryInput(soundurl);
         })
         .catch(console.log);
+        if(persistant === 1){
+
+        }else{
+          setTimeout(() => {
+            userchoice.voiceChannel.leave();
+          }, 5000);          
+        }
 
     } else {
       console.log("No User/channel found");
