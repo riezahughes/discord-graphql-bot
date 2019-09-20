@@ -47,25 +47,44 @@ client.on('message', (msg) => {
   console.log(`Guild: ${guildid}`);
 
   if (command === "joinChannel") {
-    const userchoice = client.guilds.get(guildid).member(userid);
-    if(userchoice.voiceChannel){
+    let userchoice = client.guilds.get(guildid).member(userid);
+    if (userchoice.voiceChannel) {
       userchoice.voiceChannel.join();
-    }else{
+    } else {
       console.log("No User/channel found");
     }
   }
 
   if (command === "leaveChannel") {
-    const userchoice = client.guilds.get(guildid).member("624196327634370580");
-    if(userchoice.voiceChannel){
+    let userchoice = client.guilds.get(guildid).member("624196327634370580");
+    if (userchoice.voiceChannel) {
       console.log("Leaving...");
       userchoice.voiceChannel.leave();
-    }else{
+    } else {
       console.log("No User/channel found");
     }
   }
 
+  if (command === "playSound") {
 
+    let userchoice = client.guilds.get(guildid).member(userid);
+    console.log("found user");
+    if (userchoice.voiceChannel) {
+      // console.log("in voice channel");
+      // userchoice.voiceChannel.join();
+      // console.log("Joined");
+      // userchoice.voiceChannel.leave();
+      userchoice.voiceChannel.join()
+        .then(connection => { // Connection is an instance of VoiceConnection
+          connection.playArbitraryInput(soundurl);
+        })
+        .catch(console.log);
+
+    } else {
+      console.log("No User/channel found");
+    }
+
+  }
 
 })
 
