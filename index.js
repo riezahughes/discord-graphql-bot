@@ -47,19 +47,27 @@ client.on('message', (msg) => {
   console.log(`Guild: ${guildid}`);
 
   if (command === "joinChannel") {
-
+    const userchoice = client.guilds.get(guildid).member(userid);
+    if(userchoice.voiceChannel){
+      userchoice.voiceChannel.join();
+    }else{
+      console.log("No User/channel found");
+    }
   }
 
   if (command === "leaveChannel") {
-
+    const userchoice = client.guilds.get(guildid).member("624196327634370580");
+    if(userchoice.voiceChannel){
+      console.log("Leaving...");
+      userchoice.voiceChannel.leave();
+    }else{
+      console.log("No User/channel found");
+    }
   }
+
+
 
 })
 
-// client.on('message', msg => {
-//   if (msg.content === 'ping') {
-//     msg.reply('pong');
-//   }
-// });
 
 client.login(process.env.BOT_SECRET);
